@@ -58,4 +58,4 @@ Please change DB_PASS=YOUR_PASSWORD in .env file!
 - https://github.com/mashingan/smapping
 
 ## License 
-This repository is released under an MIT license.  See [License.md](https://github.com/lexuanquynh/go_api/blob/main/LICENSE) for more information.# go_api
+This repository is released under an MIT license.  See [License.md](https://github.com/lexuanquynh/go_api/blob/main/LICENSE) for more information.
