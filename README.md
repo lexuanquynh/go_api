@@ -19,7 +19,7 @@ Create by: codetoanbug.com
  create database golang_api;
 ```
 
-- Create .env file with contents, you need change YOUR_PASSWORD_FOR_ROOT:
+- Create .env file with contents below, you need change YOUR_PASSWORD_FOR_ROOT:
 
 ```env
 DB_USER=root
@@ -32,7 +32,7 @@ JWT_SECRET=yourkey_keysecret
 ```go
 go run server.go
 ```
-- Try use postman and use your APIs:
+- Try to use postman and use your APIs:
 ```PHP
 http://localhost:8080/api/auth/login
 http://localhost:8080/api/auth/register
