@@ -16,4 +16,4 @@ Create by: codetoanbug.com
 - https://github.com/mashingan/smapping
 
 # License 
-This repository is released under an MIT license.  See [License.md](https://github.com/lexuanquynh/golang_api/blob/main/LICENSE) for more information.# go_api
+This repository is released under an MIT license.  See [License.md](https://github.com/lexuanquynh/go_api/blob/main/LICENSE) for more information.# go_api
