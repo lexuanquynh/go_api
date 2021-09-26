@@ -2,7 +2,7 @@
 
 Create the sample APIs, using clean architecture.
 
-Create by: codetoanbug.com
+Create by: [codetoanbug.com](https://codetoanbug.com)
 
 ## Require:
 - install go: https://golang.org/doc/install
