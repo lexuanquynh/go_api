@@ -4,10 +4,45 @@ Create the sample APIs, using clean architecture.
 
 Create by: codetoanbug.com
 
-# Require:
-- install mysql
+## Require:
+- install go: https://golang.org/doc/install
+- install mysql: https://dev.mysql.com/downloads/mysql/
+- install workbench: https://dev.mysql.com/downloads/workbench/
+- You need start mysql server in your machine.
+## Step to run this project:
+- Create user name for mysql: root & create password for root user.
+- Create database mysql by command line:
 
-# Third party libraries:
+```sql
+ export PATH=${PATH}:/usr/local/mysql/bin
+ mysql -u root -p
+ create database golang_api;
+```
+
+- Create .env file with contents, you need change YOUR_PASSWORD_FOR_ROOT:
+
+```env
+DB_USER=root
+DB_PASS=YOUR_PASSWORD_FOR_ROOT
+DB_HOST=localhost
+DB_NAME=golang_api
+JWT_SECRET=yourkey_keysecret
+```
+- Run this project with command line:
+```go
+go run server.go
+```
+- Try use postman and use your APIs:
+```PHP
+http://localhost:8080/api/auth/login
+http://localhost:8080/api/auth/register
+```
+- If you get error:
+```
+Error: connect ECONNREFUSED 127.0.0.1:8080
+```
+Please change DB_PASS=YOUR_PASSWORD in .env file! 
+## Third party libraries:
 
 - https://github.com/gin-gonic/gin
 - https://github.com/joho/godotenv
@@ -15,5 +50,5 @@ Create by: codetoanbug.com
 - https://github.com/golang/crypto
 - https://github.com/mashingan/smapping
 
-# License 
+## License 
 This repository is released under an MIT license.  See [License.md](https://github.com/lexuanquynh/go_api/blob/main/LICENSE) for more information.# go_api
