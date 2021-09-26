@@ -30,6 +30,13 @@ JWT_SECRET=yourkey_keysecret
 ```
 - Run this project with command line:
 ```go
+go get github.com/mashingan/smapping
+go get github.com/golang/crypto
+go get github.com/golang-jwt/jwt
+go get github.com/joho/godotenv
+go get github.com/gin-gonic/gin
+go get -u gorm.io/gorm
+go get gorm.io/driver/mysql
 go run server.go
 ```
 - Try to use postman and use your APIs:
