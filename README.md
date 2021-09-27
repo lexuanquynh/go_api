@@ -39,14 +39,60 @@ go get -u gorm.io/gorm
 go get gorm.io/driver/mysql
 go run server.go
 ```
-- Try to use postman and use your APIs:
+- Try to use postman and use your APIs POST method:
 ```PHP
 http://localhost:8080/api/auth/login
 http://localhost:8080/api/auth/register
 ```
+
+- Header:
+
+```PHP
+key:Content-Type
+value: application/json
+```
+- Body:
+```PHP
+{
+    "password":"password",
+    "email":"codetoanbug@gmail.com"
+}
+```
 - If you get error:
 ```
 Error: connect ECONNREFUSED 127.0.0.1:8080
+```
+- User APIs GET method:
+```PHP
+http://localhost:8080/api/user/profile
+```
+- Header:
+
+```PHP
+key:Content-Type
+value: application/json
+key: Authorization
+value: <token from login api>
+```
+
+- User APIs PUT method:
+```PHP
+http://localhost:8080/api/user/profile
+```
+- Header:
+
+```PHP
+key:Content-Type
+value: application/json
+key: Authorization
+value: <token from login api>
+```
+- Body:
+```PHP
+{
+    "name":"Code toan Bug",
+    "email":"codetoanbug@gmail.com"
+}
 ```
 Please change DB_PASS=YOUR_PASSWORD in .env file! 
 ## Third party libraries:
