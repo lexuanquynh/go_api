@@ -58,10 +58,7 @@ value: application/json
     "email":"codetoanbug@gmail.com"
 }
 ```
-- If you get error:
-```
-Error: connect ECONNREFUSED 127.0.0.1:8080
-```
+
 - User APIs GET method:
 ```PHP
 http://localhost:8080/api/user/profile
@@ -81,18 +78,22 @@ http://localhost:8080/api/user/profile
 ```
 - Header:
 
-```PHP
+```json
 key:Content-Type
 value: application/json
 key: Authorization
 value: <token from login api>
 ```
 - Body:
-```PHP
+```json
 {
     "name":"Code toan Bug",
     "email":"codetoanbug@gmail.com"
 }
+```
+- If you get error:
+```json
+Error: connect ECONNREFUSED 127.0.0.1:8080
 ```
 Please change DB_PASS=YOUR_PASSWORD in .env file! 
 ## Third party libraries:
