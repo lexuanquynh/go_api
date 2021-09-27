@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/joho/godotenv"
+	"github.com/lexuanquynh/golang_api/entity"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -24,7 +25,14 @@ func SetupDatabaseConnection() *gorm.DB {
 	if err != nil {
 		panic("Failed to create a connection to database")
 	}
-	db.AutoMigrate()
+	// errDB := db.AutoMigrate(&entity.Book{}, &entity.User{}).Error
+	// if errDB != nil {
+	// 	fmt.Println("Error HandleMigrate:" + errDB())
+	// }
+	db.AutoMigrate(&entity.Book{}, &entity.User{})
+	// if errDb != nil {
+	// 	panic(err)
+	// }
 	return db
 }
 

@@ -10,9 +10,10 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
+// interface use case need to do for authen
 type AuthService interface {
 	VerifyCredential(email string, password string) interface{}
-	CreateUser(user dto.UserCreateDTO) entity.User
+	CreateUser(user dto.RegisterDTO) entity.User
 	FindByEmail(email string) entity.User
 	IsDuplicateEmail(email string) bool
 }
@@ -21,7 +22,7 @@ type authService struct {
 	userRepository repository.UserRepository
 }
 
-func newAuthService(userRep repository.UserRepository) AuthService {
+func NewAuthService(userRep repository.UserRepository) AuthService {
 	return &authService{
 		userRepository: userRep,
 	}
@@ -30,7 +31,7 @@ func newAuthService(userRep repository.UserRepository) AuthService {
 func (service *authService) VerifyCredential(email string, password string) interface{} {
 	res := service.userRepository.VerifyCredential(email, password)
 	if v, ok := res.(entity.User); ok {
-		comparedPassword := comparePassword(v.password, []byte(password))
+		comparedPassword := comparePassword(v.Password, []byte(password))
 		if v.Email == email && comparedPassword {
 			return res
 		}
@@ -39,11 +40,11 @@ func (service *authService) VerifyCredential(email string, password string) inte
 	return false
 }
 
-func (service *authService) CreateUser(user dto.UserCreateDTO) entity.User {
+func (service *authService) CreateUser(user dto.RegisterDTO) entity.User {
 	userToCreate := entity.User{}
 	err := smapping.FillStruct(&userToCreate, smapping.MapFields(&user))
 	if err != nil {
-		log.Fatal("failed map %v", err)
+		log.Println(err)
 	}
 	res := service.userRepository.InsertUser(userToCreate)
 	return res

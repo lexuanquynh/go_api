@@ -4,12 +4,20 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/lexuanquynh/golang_api/config"
 	"github.com/lexuanquynh/golang_api/controller"
+	"github.com/lexuanquynh/golang_api/middleware"
+	"github.com/lexuanquynh/golang_api/repository"
+	"github.com/lexuanquynh/golang_api/service"
 	"gorm.io/gorm"
 )
 
 var (
 	db             *gorm.DB                  = config.SetupDatabaseConnection()
-	authController controller.AuthController = controller.NewAuthController()
+	userRepository repository.UserRepository = repository.NewUserRepository(db)
+	jwtService     service.JWTService        = service.NewJWTService()
+	authService    service.AuthService       = service.NewAuthService(userRepository)
+	userService    service.UserService       = service.NewUserService(userRepository)
+	authController controller.AuthController = controller.NewAuthController(authService, jwtService)
+	userController controller.UserController = controller.NewUserController(userService, jwtService)
 )
 
 func main() {
@@ -22,5 +30,10 @@ func main() {
 		authRoutes.POST("/register", authController.Register)
 	}
 
-	r.Run()
+	userRoutes := r.Group("api/user", middleware.AuthorizeJWT(jwtService))
+	{
+		userRoutes.GET("/profile", userController.Profile)
+		userRoutes.PUT("/profile", userController.Update)
+	}
+	r.Run(":8080")
 }
