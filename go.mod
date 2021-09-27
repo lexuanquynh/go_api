@@ -1,4 +1,4 @@
-module github.com/lexuanquynh/golang_api
+module github.com/lexuanquynh/go_api
 
 go 1.16
 

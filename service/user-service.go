@@ -3,9 +3,9 @@ package service
 import (
 	"log"
 
-	"github.com/lexuanquynh/golang_api/dto"
-	"github.com/lexuanquynh/golang_api/entity"
-	"github.com/lexuanquynh/golang_api/repository"
+	"github.com/lexuanquynh/go_api/dto"
+	"github.com/lexuanquynh/go_api/entity"
+	"github.com/lexuanquynh/go_api/repository"
 	"github.com/mashingan/smapping"
 )
 

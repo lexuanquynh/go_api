@@ -5,10 +5,10 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"github.com/lexuanquynh/golang_api/dto"
-	"github.com/lexuanquynh/golang_api/entity"
-	"github.com/lexuanquynh/golang_api/helper"
-	"github.com/lexuanquynh/golang_api/service"
+	"github.com/lexuanquynh/go_api/dto"
+	"github.com/lexuanquynh/go_api/entity"
+	"github.com/lexuanquynh/go_api/helper"
+	"github.com/lexuanquynh/go_api/service"
 )
 
 type AuthController interface {
