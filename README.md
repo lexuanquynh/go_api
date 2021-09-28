@@ -96,6 +96,12 @@ value: <token from login api>
 Error: connect ECONNREFUSED 127.0.0.1:8080
 ```
 Please change DB_PASS=YOUR_PASSWORD in .env file! 
+
+- If you want to deploy to vps server, you need change code in database-config.go, sample:
+```go
+     errEnv := godotenv.Load("/usr/local/src/golang_api/.env")
+```
+
 ## Third party libraries:
 
 - https://github.com/gin-gonic/gin
