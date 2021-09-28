@@ -106,9 +106,7 @@ Please change DB_PASS=YOUR_PASSWORD in .env file!
 - Get books:
 ```go
 [GET] http://localhost:8080/api/books
-
 ```
-
 - Insert book:
 ```go
 [POST] http://localhost:8080/api/books
