@@ -101,6 +101,41 @@ Please change DB_PASS=YOUR_PASSWORD in .env file!
 ```go
      errEnv := godotenv.Load("/usr/local/src/golang_api/.env")
 ```
+## APIs for books:
+
+- Get books:
+```go
+[GET] http://localhost:8080/api/books
+
+```
+
+- Insert book:
+```go
+[POST] http://localhost:8080/api/books
+```
+```json
+{
+    "title":"sach hay",
+    "description":"sach hay ve van hoc"
+}
+```
+
+- Update book:
+```
+[PUT] http://localhost:8080/api/books/1
+```
+```json
+{
+    "id":1,
+    "title":"sach hay",
+    "description":"sach hay ve van hoc nha"
+}
+```
+
+- Delete book:
+```go
+[DELETE] http://localhost:8080/api/books/2
+```
 
 ## Third party libraries:
 
